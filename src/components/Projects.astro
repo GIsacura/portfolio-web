@@ -1,0 +1,101 @@
+---
+import NextJs from "../icons/NextJs.astro";
+import Tailwind from "../icons/Tailwind.astro";
+import React from "../icons/React.astro";
+import Node from "../icons/Node.astro";
+import Nest from "../icons/Nest.astro";
+import Mongo from "../icons/Mongo.astro";
+import Postgresql from "../icons/Postgresql.astro";
+
+const TAGS = {
+	NEXT: {
+		name: "Next Js",
+		class: "bg-gray-500/50 text-white",
+		icon: NextJs,
+	},
+	TAILWIND: {
+		name: "Tailwind CSS",
+		class: "bg-[#2298BD]/50 text-white",
+		icon: Tailwind,
+	},
+	REACT: {
+		name: "React",
+		class: "bg-[#53D2FA]/50 text-white",
+		icon: React,
+	},
+	NODE: {
+		name: "Node Js",
+		class: "bg-[#68a063]/50 text-white",
+		icon: Node,
+	},
+	NEST: {
+		name: "Nest Js",
+		class: "bg-red-500/50 text-white",
+		icon: Nest,
+	},
+	MONGO: {
+		name: "Mongo DB",
+		class: "bg-green-500/50 text-white",
+		icon: Mongo,
+	},
+	POSTGRESQL: {
+		name: "PostgreSQL",
+		class: "bg-[#336791] text-white",
+		icon: Postgresql,
+	},
+};
+const PROJECTS = [
+	{
+		title: "Url Shortener",
+		description:
+			"Web app to generate short urls. The FrontEnd is built with Next Js and Tailwind CSS. The BackEnd is also built with Next Js and PostgreSQL. The app is deployed on Vercel.",
+		image: "/assets/screencapture-url-shortener.webp",
+		link: "https://url-shortener-two-steel.vercel.app/",
+		github: "https://github.com/GIsacura/url-shortener",
+		tags: [TAGS["REACT"], TAGS["NEXT"], TAGS["TAILWIND"], TAGS["POSTGRESQL"]],
+	},
+	{
+		title: "Video Games Searcher",
+		description:
+			"Web app to search info about video games with info up to 2020. The Front End is built with Next js and Tailwind CSS. The Back End is built with Nest Js and Mongo DB. The app Frontend is deployed on Vercel and the Backend in Render.",
+		image: "/assets/screencapture-video-games-data.webp",
+		link: "https://video-games-data-fe.vercel.app/",
+		github: "https://github.com/GIsacura/video_games_data_fe",
+		github2: "https://github.com/GIsacura/video_games_data_be",
+		tags: [
+			TAGS["REACT"],
+			TAGS["NEXT"],
+			TAGS["TAILWIND"],
+			TAGS["NODE"],
+			TAGS["NEST"],
+			TAGS["MONGO"],
+		],
+	},
+];
+---
+
+{
+	PROJECTS.map(({ title, description, tags, image }) => (
+		<article class="mb-20">
+			<h3 class="text-2xl font-semibold text-sky-300 mb-2">{title}</h3>
+			<p class="text-lg mb-4 text-pretty">{description}</p>
+			<ul class="flex gap-x-4 flex-row mb-5">
+				{tags.map((tag) => (
+					<li>
+						<span
+							class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 items-center`}
+						>
+							<tag.icon class="size-6" />
+							{tag.name}
+						</span>
+					</li>
+				))}
+			</ul>
+			<img
+				class="rounded shadow-2xl shadow-white/10"
+				src={image}
+				alt={`Screen capture of project ${title}`}
+			/>
+		</article>
+	))
+}
