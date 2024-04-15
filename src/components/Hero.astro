@@ -1,0 +1,49 @@
+---
+import Badge from "../components/Badge.astro";
+import LinkedIn from "../icons/LinkedIn.astro";
+import Github from "../icons/Github.astro";
+import Mail from "../icons/Mail.astro";
+import SocialPill from "../components/SocialPill.astro";
+---
+
+<div class="max-w-xl">
+	<div class="flex gap-4 mb-4">
+		<img
+			class="rounded-full size-16 mb-4"
+			src="/assets/photo.webp"
+			alt="Gustavo Isacura"
+		/>
+		<a
+			href="https://linkedin.com/in/gustavoisacura"
+			target="_blank"
+			rel="noopener"
+			class="flex items-center transition md:justify-center md:hover:scale-105"
+		>
+			<Badge>Open to work</Badge>
+		</a>
+	</div>
+	<h1
+		class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
+	>
+		Hey, i am Gustavo Isacura <div class="flex justify-center items-center">
+		</div>
+	</h1>
+	<p
+		class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-sky-200 [&>strong]:text-sky-500 [&>strong]:font-semibold dark:text-gray-300"
+	>
+		2 years of experience.
+		<strong>Web Developer</strong> from Valencia, Venezuela. Specialized in creating
+		unique applications.
+	</p>
+</div>
+
+<nav class="flex gap-4 mt-8 flex-wrap">
+	<SocialPill href="mailto:gisacurab@gmail.com">
+		<Mail class="size-4" />
+		Contact me
+	</SocialPill>
+	<SocialPill href="https://linkedin.com/in/gustavoisacura">
+		<LinkedIn class="size-4" />
+		Linkedin
+	</SocialPill>
+</nav>

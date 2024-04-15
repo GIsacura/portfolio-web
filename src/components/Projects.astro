@@ -6,49 +6,53 @@ import Node from "../icons/Node.astro";
 import Nest from "../icons/Nest.astro";
 import Mongo from "../icons/Mongo.astro";
 import Postgresql from "../icons/Postgresql.astro";
+import LinkButton from "./LinkButton.astro";
+import Github from "../icons/Github.astro";
+import WorldIcon from "../icons/World.astro";
 
 const TAGS = {
 	NEXT: {
 		name: "Next Js",
-		class: "bg-gray-500/50 text-white",
+		class: "bg-black dark:bg-gray-500/50 text-white",
 		icon: NextJs,
 	},
 	TAILWIND: {
 		name: "Tailwind CSS",
-		class: "bg-[#2298BD]/50 text-white",
+		class: "bg-[#003159] text-white",
 		icon: Tailwind,
 	},
 	REACT: {
 		name: "React",
-		class: "bg-[#53D2FA]/50 text-white",
+		class: "bg-[#003159] text-white",
 		icon: React,
 	},
 	NODE: {
 		name: "Node Js",
-		class: "bg-[#68a063]/50 text-white",
+		class: "bg-[#68a063] dark:bg-[#68a063]/50 text-white",
 		icon: Node,
 	},
 	NEST: {
 		name: "Nest Js",
-		class: "bg-red-500/50 text-white",
+		class: "bg-red-700 dark:bg-red-700/50 text-white",
 		icon: Nest,
 	},
 	MONGO: {
 		name: "Mongo DB",
-		class: "bg-green-500/50 text-white",
+		class: "bg-green-700 dark:bg-green-700/50 text-white",
 		icon: Mongo,
 	},
 	POSTGRESQL: {
 		name: "PostgreSQL",
-		class: "bg-[#336791] text-white",
+		class: "bg-[#003159] text-white",
 		icon: Postgresql,
 	},
 };
+
 const PROJECTS = [
 	{
 		title: "Url Shortener",
 		description:
-			"Web app to generate short urls. The FrontEnd is built with Next Js and Tailwind CSS. The BackEnd is also built with Next Js and PostgreSQL. The app is deployed on Vercel.",
+			"Web app to generate short urls. The FrontEnd is built with Next Js and Tailwind CSS. The BackEnd is also built with Next Js and PostgreSQL.",
 		image: "/assets/screencapture-url-shortener.webp",
 		link: "https://url-shortener-two-steel.vercel.app/",
 		github: "https://github.com/GIsacura/url-shortener",
@@ -57,45 +61,68 @@ const PROJECTS = [
 	{
 		title: "Video Games Searcher",
 		description:
-			"Web app to search info about video games with info up to 2020. The Front End is built with Next js and Tailwind CSS. The Back End is built with Nest Js and Mongo DB. The app Frontend is deployed on Vercel and the Backend in Render.",
+			"Web app to search info about video games with info up to 2020. The app is built with Next js with Tailwind CSS and Nest Js with Mongo DB.",
 		image: "/assets/screencapture-video-games-data.webp",
-		link: "https://video-games-data-fe.vercel.app/",
-		github: "https://github.com/GIsacura/video_games_data_fe",
-		github2: "https://github.com/GIsacura/video_games_data_be",
-		tags: [
-			TAGS["REACT"],
-			TAGS["NEXT"],
-			TAGS["TAILWIND"],
-			TAGS["NODE"],
-			TAGS["NEST"],
-			TAGS["MONGO"],
-		],
+		link: "https://video-games-data.vercel.app/",
+		github: "https://github.com/GIsacura/video_games_data",
+		tags: [TAGS["NEXT"], TAGS["TAILWIND"], TAGS["NEST"], TAGS["MONGO"]],
 	},
 ];
 ---
 
-{
-	PROJECTS.map(({ title, description, tags, image }) => (
-		<article class="mb-20">
-			<h3 class="text-2xl font-semibold text-sky-300 mb-2">{title}</h3>
-			<p class="text-lg mb-4 text-pretty">{description}</p>
-			<ul class="flex gap-x-4 flex-row mb-5">
-				{tags.map((tag) => (
-					<li>
-						<span
-							class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 items-center`}
-						>
-							<tag.icon class="size-6" />
-							{tag.name}
-						</span>
-					</li>
-				))}
-			</ul>
-			<img
-				class="rounded shadow-2xl shadow-white/10"
-				src={image}
-				alt={`Screen capture of project ${title}`}
-			/>
-		</article>
-	))
-}
+<div class="flex flex-col gap-y-16">
+	{
+		PROJECTS.map(({ title, description, tags, image, github, link }) => (
+			<article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+				<div class="w-full md:w-1/2">
+					<div class="relative w-full flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+						<img
+							alt={`Screen capture of project ${title}`}
+							class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+							loading="lazy"
+							src={image}
+						/>
+					</div>
+				</div>
+
+				<div class="w-full md:w-1/2 md:max-w-lg">
+					<h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+						{title}
+					</h3>
+					<div class="flex flex-wrap mt-2">
+						<ul class="flex flex-row flex-wrap mb-2 gap-2 lg:flex-nowrap lg:min-w-max">
+							{tags.map((tag) => (
+								<li>
+									<span
+										class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+									>
+										<tag.icon class="size-4" />
+										{tag.name}
+									</span>
+								</li>
+							))}
+						</ul>
+
+						<div class="mt-2 text-gray-700 dark:text-gray-400">
+							{description}
+						</div>
+						<footer class="flex items-end justify-start mt-4 gap-x-4">
+							{github && (
+								<LinkButton href={github}>
+									<Github class="size-6" />
+									Code
+								</LinkButton>
+							)}
+							{link && (
+								<LinkButton href={link}>
+									<WorldIcon class="size-4" />
+									Preview
+								</LinkButton>
+							)}
+						</footer>
+					</div>
+				</div>
+			</article>
+		))
+	}
+</div>
