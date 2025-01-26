@@ -9,6 +9,7 @@ import Postgresql from "../icons/Postgresql.astro";
 import LinkButton from "./LinkButton.astro";
 import Github from "../icons/Github.astro";
 import WorldIcon from "../icons/World.astro";
+import Vue from "../icons/Vue.astro";
 
 const TAGS = {
 	NEXT: {
@@ -25,6 +26,11 @@ const TAGS = {
 		name: "React",
 		class: "bg-[#003159] text-white",
 		icon: React,
+	},
+	VUE: {
+		name: "Vue",
+		class: "bg-[#35495e] text-white",
+		icon: Vue,
 	},
 	NODE: {
 		name: "Node Js",
@@ -76,6 +82,14 @@ const PROJECTS = [
 		github: "https://github.com/GIsacura/online-chat",
 		tags: [TAGS["NEXT"], TAGS["TAILWIND"], TAGS["NEST"]],
 	},
+	// {
+	// 	title: "",
+	// 	description: "",
+	// 	image: "",
+	// 	link: "https://ride-hailing-steel.vercel.app/",
+	// 	github: "",
+	// 	tags: [TAGS["VUE"]],
+	// },
 ];
 ---
 
