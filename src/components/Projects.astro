@@ -10,6 +10,7 @@ import LinkButton from "./LinkButton.astro";
 import Github from "../icons/Github.astro";
 import WorldIcon from "../icons/World.astro";
 import Vue from "../icons/Vue.astro";
+import Express from "../icons/Express.astro";
 
 const TAGS = {
 	NEXT: {
@@ -36,6 +37,11 @@ const TAGS = {
 		name: "Node Js",
 		class: "bg-[#68a063] dark:bg-[#68a063]/50 text-white",
 		icon: Node,
+	},
+	EXPRESS: {
+		name: "Express js",
+		class: "bg-black dark:bg-gray-500/50 text-white",
+		icon: Express,
 	},
 	NEST: {
 		name: "Nest Js",
@@ -82,14 +88,15 @@ const PROJECTS = [
 		github: "https://github.com/GIsacura/online-chat",
 		tags: [TAGS["NEXT"], TAGS["TAILWIND"], TAGS["NEST"]],
 	},
-	// {
-	// 	title: "",
-	// 	description: "",
-	// 	image: "",
-	// 	link: "https://ride-hailing-steel.vercel.app/",
-	// 	github: "",
-	// 	tags: [TAGS["VUE"]],
-	// },
+	{
+		title: "Ride-hailing web admin",
+		description:
+			"Web admin  that allows authenticated administrator users to register and view vehicles in the context of a ride hailing company",
+		image: "/assets/screencapture-ride-hiling.webp",
+		// link: "https://ride-hailing-steel.vercel.app/",
+		github: "https://github.com/GIsacura/ride-hailing",
+		tags: [TAGS["VUE"], TAGS["EXPRESS"]],
+	},
 ];
 ---
 
